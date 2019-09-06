@@ -17,3 +17,68 @@
     <div class="right-button"> > </div>
   </div>
 */
+
+let slideIndex = 1;
+
+function carouselComponent() {
+  const [div, div1, img, img1, img2, img3, div2] = ['div', 'div', 'img', 'img', 'img', 'img', 'div'].map(
+    element => document.createElement(element)
+  );
+
+  div.classList.add("carousel");
+  div1.classList.add("left-button");
+  div2.classList.add("right-button");
+  
+
+  img.setAttribute('src', "./assets/carousel/mountains.jpeg");
+  img1.setAttribute('src', "./assets/carousel/computer.jpeg");
+  img2.setAttribute('src', "./assets/carousel/trees.jpeg");
+  img3.setAttribute('src', "./assets/carousel/turntable.jpeg");
+
+  div1.textContent = '<';
+  div2.textContent = '>';
+
+  div.appendChild(div1);
+  div.appendChild(img);
+  div.appendChild(img1);
+  div.appendChild(img2);
+  div.appendChild(img3);
+  div.appendChild(div2);
+
+  img.style.display = 'block';
+  
+
+  
+  div1.onclick = function plusSlides() {
+    slideIndex += (-1);
+    let slideImages = [img, img1, img2, img3];
+    if (slideIndex > slideImages.length) {slideIndex = 1}
+    if (slideIndex < 1) {slideIndex = slideImages.length}
+    for (let i = 0; i < slideImages.length; i++) {
+      slideImages[i].style.display = "none";
+    }
+  
+    slideImages[slideIndex-1].style.display = "block";
+  }
+  div2.onclick = function plusSlides() {
+    slideIndex += 1;
+    let slideImages = [img, img1, img2, img3];
+    if (slideIndex > slideImages.length) {slideIndex = 1}
+    if (slideIndex < 1) {slideIndex = slideImages.length}
+    for (let i = 0; i < slideImages.length; i++) {
+      slideImages[i].style.display = "none";
+    }
+    slideImages[slideIndex-1].style.display = "block";
+  }
+
+  
+  return div;
+
+}
+
+document.querySelector('.carousel-container')
+.appendChild(carouselComponent());
+
+
+
+
