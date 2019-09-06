@@ -30,13 +30,42 @@ Edit this document to include your answers after each question. Make sure to lea
 
 1. What is the DOM?
 
+DOM means Document Object Model and is an interface that treats an HTML document as a tree structure where each node is an object representing a part of the document, like an HTML element.
+
 2. What is an event?
+
+An event is an action or occurrence that happens in the system you are programming, which the system tells you about so you can respond to them in some way if desired. For example, clicking a button or moving your mouse over some content.
 
 3. What is an event listener?
 
+An event listener represents an object that can handle an event dispatched by an EventTarget object. It listens to check whenever the dispatched event is carried out and then runs some code, as programmed by the developer.
+
 4. Why would we convert a NodeList into an Array?
 
+We convert a nodelist into an array because, though a nodelist looks like an array, it doesn't feature any of the methods available to an array. So, we use Array.from(nodelist) to convert the nodelist to an array.
+
 5. What is a component?
+
+A component is an independent and reusable bit of code which serve the same purpose as JavaScript functions, but work in isolation and return an HTML element via a render function. For example, the header function below is a component and is invoked just as we would a normal function, i.e, Header() but returns an HTML element, i.e, 'div', instead:
+function Header() {
+    const [div, span, h1, span1] = ['div', 'span', 'h1', 'span'].map(
+        element => document.createElement(element)
+    );
+
+    div.classList.add('header');
+    span.classList.add("date");
+    span1.classList.add("temp");
+
+    span.textContent = 'MARCH 28, 2019';
+    h1.textContent = 'Lambda Times';
+    span1.textContent = '98°';
+
+    div.appendChild(span);
+    div.appendChild(h1);
+    div.appendChild(span1);
+
+    return div;
+}
 
 ### Git Set up
 
