@@ -10,12 +10,26 @@
 
 axios.get('https://lambda-times-backend.herokuapp.com/topics')
 .then(response => {
-    const div = document.createElement('div')
+    const [div, div1, div2, div3, div4] = ['div', 'div', 'div', 'div', 'div']
+    .map(element => 
+        document.createElement(element)
+    )
     div.classList.add('tab')
+    div1.classList.add('tab')
+    div2.classList.add('tab')
+    div3.classList.add('tab')
+    div4.classList.add('tab')
 
-    response.data.topics.forEach(topic => {
-        div.textContent = topic
-        document.querySelector('.topics')
-        .appendChild(div);
-    });
+    div.textContent = response.data.topics[0]
+    div1.textContent = response.data.topics[1]
+    div2.textContent = response.data.topics[2]
+    div3.textContent = response.data.topics[3]
+    div4.textContent = response.data.topics[4]
+
+    document.querySelector('.topics').appendChild(div);
+    document.querySelector('.topics').appendChild(div1);
+    document.querySelector('.topics').appendChild(div2);
+    document.querySelector('.topics').appendChild(div3);
+    document.querySelector('.topics').appendChild(div4);
 })
+.catch(err => console.log(err))

@@ -10,7 +10,7 @@
 // And add it to the DOM in the .headerContainer component
 
 function Header() {
-    const [div, span, h1, span1] = ['div', 'span', 'h1', 'span1'].map(
+    const [div, span, h1, span1] = ['div', 'span', 'h1', 'span'].map(
         element => document.createElement(element)
     );
 
@@ -29,5 +29,5 @@ function Header() {
     return div;
 }
 
-document.querySelector('.headerContainer')
+document.querySelector('.header-container')
 .appendChild(Header())
